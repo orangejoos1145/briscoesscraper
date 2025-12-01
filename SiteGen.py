@@ -6,7 +6,7 @@ from datetime import datetime
 
 # ---- Configuration ----
 IN_CSV = "briscoes_products_clean.csv"
-OUT_HTML = "briscoes_deals.html"
+OUT_HTML = "index.html"
 WHATS_NEW_FILE = "whatsnew.txt"
 
 # ---- SUPER CATEGORY MAPPING ----
