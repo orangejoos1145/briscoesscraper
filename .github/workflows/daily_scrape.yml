@@ -1,0 +1,47 @@
+name: Daily Deal Scrape
+
+on:
+  # 1. Run automatically at 6:00 AM UTC every day
+  schedule:
+    - cron: '0 6 * * *'
+  # 2. Allow you to click a button in GitHub to run it manually
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Scraper
+        run: python SiteScraper.py
+        # This will generate/overwrite briscoes_products_clean.csv
+
+      - name: Run Site Generator
+        run: python SiteGen.py
+        # This will generate/overwrite briscoes_deals.html
+
+      - name: Rename HTML to index
+        run: mv briscoes_deals.html index.html
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add index.html briscoes_products_clean.csv
+          git commit -m "Automated Daily Update" || exit 0
+          git push
