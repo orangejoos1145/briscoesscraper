@@ -8,7 +8,7 @@ API_URL = "https://aucs34.ksearchnet.com/cs/v2/search"
 
 # 2. Settings
 TOTAL_PRODUCTS_TO_FETCH = 14000
-BATCH_SIZE = 100 
+BATCH_SIZE = 1000
 API_KEY = "klevu-173190000117617559"
 
 headers = {

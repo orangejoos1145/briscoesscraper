@@ -2,6 +2,7 @@ import pandas as pd
 import html
 import json
 import os
+import pytz
 from datetime import datetime
 
 # ---- Configuration ----
@@ -163,7 +164,9 @@ for idx, row in df.iterrows():
 
 json_data = json.dumps(deals_payload)
 category_filters_html = generate_category_filters_html(list(unique_categories))
-scrape_time_str = datetime.now().strftime("%d/%m/%Y @ %I:%M %p")
+# Set timezone to New Zealand
+nz_tz = pytz.timezone('Pacific/Auckland')
+scrape_time_str = datetime.now(nz_tz).strftime("%d/%m/%Y @ %I:%M %p")
 
 # Optional Whats New
 whats_new_content = "No updates found."

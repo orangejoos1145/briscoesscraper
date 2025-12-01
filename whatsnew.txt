@@ -1,0 +1,9 @@
+v1.0.0 - 01/12/2025
+-------------------
+🚀 Initial Launch!
+- Official release of the Briscoes Deal Finder.
+- Added automated daily price updates (running every morning).
+- Implemented smart category grouping (Kitchen, Bedroom, Tech, etc.).
+- Added "Hide 0% Off" toggle to filter out full-priced items.
+- Enabled Dark Mode support (auto-detects your system theme).
+- Added search and discount percentage filters to find the best deals fast.
